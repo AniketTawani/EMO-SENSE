@@ -7,7 +7,8 @@ This project aims to classify the emotion on a person's face into one of **seven
 
 ## Example Output
 
-video.mp4
+![ezgif com-gif-maker](https://user-images.githubusercontent.com/80245432/175472427-c9e29e3f-33e6-4853-844a-59b73df54357.gif)
+
 
 ## References
 
