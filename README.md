@@ -7,7 +7,7 @@ This project aims to classify the emotion on a person's face into one of **seven
 
 ## Example Output
 
-![Mutiface](video.mp4)
+video.mp4
 
 ## References
 
