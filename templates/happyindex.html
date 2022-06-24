@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<nav class="menu-container">
+ 
+    <input type="checkbox" aria-label="Toggle menu" />
+    <span></span>
+    <span></span>
+    <span></span>
+
+ <div class="menu">
+    <ul>
+      <li>
+        <a href="/dashboard">
+          Home
+        </a>
+      </li>
+      <li>
+        <a href="/analytics">
+          Analytics
+        </a>
+      </li>
+      <li>
+        <a href="/history">
+          History
+        </a>
+      </li>
+      <li>
+        <a href="/recents">
+          Recents
+        </a>
+      </li>
+      <li>
+        <a href="/customerFeed">
+          Customer's Happy Index
+        </a>
+      </li>
+    </ul>
+    <ul>
+     
+      <li>
+        <a href="/user/signout">
+          SignOut
+        </a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<h1 class="center">Happy Index</h1>
+<h2 class="center">{{name}}</h2>
+<div class="center">
+ <img src="{{url_for('static',filename='images/happyindex.jpg')}}">
+</div>
+<div class="card" style="margin-left:35%">
+  <h1 class="center">Send Offer</h1>
+  <form action="/sendMail" method="POST">
+  <label for="email">Email:</label>
+  <input type="hidden" name="customer_name" value="{{name}}">
+  <input type="text" value="{{email}}" name="email" class="field">
+  <label for="message">Message</label>
+  <textarea name="message" style="width:300px;height:300px" class="field">{{message}}</textarea>
+  <button name="SendEmail" class="btn">Send Email</button>
+  </form>
+</div>
+{% endblock %}

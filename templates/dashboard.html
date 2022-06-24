@@ -1,0 +1,81 @@
+{% extends "base.html" %}
+
+{% block content %}
+<nav class="menu-container">
+ 
+  <input type="checkbox" aria-label="Toggle menu" />
+  <span></span>
+  <span></span>
+  <span></span>
+
+
+  <div class="menu">
+    <ul>
+      <li>
+        <a href="/dashboard">
+          Home
+        </a>
+      </li>
+      <li>
+        <a href="/analytics">
+          Analytics
+        </a>
+      </li>
+      <li>
+        <a href="/history">
+          History
+        </a>
+      </li>
+      <li>
+        <a href="/recents">
+          Recents
+        </a>
+      </li>
+      <li>
+        <a href="/customerFeed">
+          Customer's Happy Index
+        </a>
+      </li>
+      
+    </ul>
+    <ul>
+     
+      <li>
+        <a href="/user/signout">
+          SignOut
+        </a>
+      </li>
+    </ul>
+  </div>
+</nav>
+    
+    </div>
+    <div class="container center">
+      <div class="row">
+        {%for i in cameras%}
+          <div class="col-lg-8  offset-lg-2">
+              <h3 class="mt-5">Live Streaming</h3>
+              <img src="{{ url_for('video_feed',address=i) }}" width="50%">
+              
+          </div>
+          <div class="stopwatch">
+            
+              <div class="controls">
+                {%if start==0 %}
+                <form action="/start" method="POST">
+                  <button name="start" class="start" value="{{i}}">Start</button>
+                </form>
+                {%endif%}
+                {%if stop==0 %}
+                <form action="/stop" method="POST">
+                  <button name="stop" class="stop" value="{{i}}">Stop</button>
+                </form>
+                {%endif%}
+              </div>
+        {%endfor%}
+      </div>
+  </div>
+
+  
+  </div>
+{% endblock %}

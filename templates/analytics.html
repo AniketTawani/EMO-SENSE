@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<nav class="menu-container">
+ 
+    <input type="checkbox" aria-label="Toggle menu" />
+    <span></span>
+    <span></span>
+    <span></span>
+
+ <div class="menu">
+    <ul>
+      <li>
+        <a href="/dashboard">
+          Home
+        </a>
+      </li>
+      <li>
+        <a href="/analytics">
+          Analytics
+        </a>
+      </li>
+      <li>
+        <a href="/history">
+          History
+        </a>
+      </li>
+      <li>
+        <a href="/recents">
+          Recents
+        </a>
+      </li>
+      <li>
+        <a href="/customerFeed">
+          Customer's Happy Index
+        </a>
+      </li>
+    </ul>
+    <ul>
+     
+      <li>
+        <a href="/user/signout">
+          SignOut
+        </a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<h1 class="center">Analytics</h1>
+<form action="/plotpie" method="POST" class="center">
+    <input type="date" name="start">
+    <input type="date" name="stop">
+    <button class="btn btn--secondary" name="analyze">Analyze</button>
+</form>
+
+{%if set==1%}
+<div class="center">
+ <img src="{{url_for('static',filename='images/output.jpg')}}">
+</div>
+{%endif%}
+{% endblock %}

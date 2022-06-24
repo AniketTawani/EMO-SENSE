@@ -1,0 +1,74 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<nav class="menu-container">
+ 
+    <input type="checkbox" aria-label="Toggle menu" />
+    <span></span>
+    <span></span>
+    <span></span>
+
+ <div class="menu">
+    <ul>
+      <li>
+        <a href="/dashboard">
+          Home
+        </a>
+      </li>
+      <li>
+        <a href="/analytics">
+          Analytics
+        </a>
+      </li>
+      <li>
+        <a href="/history">
+          History
+        </a>
+      </li>
+      <li>
+        <a href="/recents">
+          Recents
+        </a>
+      </li>
+      <li>
+        <a href="/customerFeed">
+          Customer's Happy Index
+        </a>
+      </li>
+    </ul>
+    <ul>
+     
+      <li>
+        <a href="/user/signout">
+          SignOut
+        </a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<h1 class="center">Recent Customers</h1>
+
+<table class="GeneratedTable">
+  <thead>
+  <tr>
+  <th>From</th>
+  <th>To</th>
+  <th>Response</th>
+  </tr>
+  </thead>
+  <tbody>
+{%for i in records%}
+
+  <tr>
+  <td>{{i['from']}}</td>
+  <td>{{i['to']}}</td>
+  <td>{{i['feedback']}}</td>
+  </tr>
+  
+  
+{%endfor%}
+</tbody>
+</table>
+{% endblock %}

@@ -1,0 +1,77 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<nav class="menu-container">
+ 
+    <input type="checkbox" aria-label="Toggle menu" />
+    <span></span>
+    <span></span>
+    <span></span>
+
+ <div class="menu">
+    <ul>
+      <li>
+        <a href="/dashboard">
+          Home
+        </a>
+      </li>
+      <li>
+        <a href="/analytics">
+          Analytics
+        </a>
+      </li>
+      <li>
+        <a href="/history">
+          History
+        </a>
+      </li>
+      <li>
+        <a href="/recents">
+          Recents
+        </a>
+      </li>
+      <li>
+        <a href="/customerFeed">
+          Customer Happy Index
+        </a>
+      </li>
+    </ul>
+    <ul>
+     
+      <li>
+        <a href="/user/signout">
+          SignOut
+        </a>
+      </li>
+    </ul>
+  </div>
+</nav>
+{%if set==1%}
+<div class="center">
+  <p>{{message}}</p>
+</div>
+{%endif%}
+<table class="GeneratedTable">
+    <thead>
+    <tr>
+      <th>Customer Photo</th>
+    <th>Customer Name</th>
+    <th>Action</th>
+    </tr>
+    </thead>
+    <tbody>
+{%for i in data%}
+    <form action="/happyIndex" method="POST">
+    <tr>
+    <td class="center"><img src="{{url_for('static',filename='customers/'+i['customer_name']+'.jpg')}}" style="width:100px;height:100px"></td>
+    <td>{{i['customer_name']}}<input type="hidden" name="email" value="{{i['customer_email']}}"><input type="hidden" name="name" value="{{i['customer_name']}}"></td>
+    <td class="center"><button class="btn btn--secondary center" name="customer" value="{{i['customer_name']}}">HappyIndex</button></td>
+    </tr>
+    </form>
+    
+    
+{%endfor%}
+</tbody>
+</table>
+{% endblock %}
